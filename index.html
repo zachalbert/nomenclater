@@ -9,13 +9,17 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js"></script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      padding: 2rem;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       font-size: 16px;
       line-height: 1.5;
       color: #747e88;
       background-color: #f2fbfb;
+      margin: 0 2rem;
     }
 
     h1 {
@@ -70,7 +74,6 @@
     }
 
     form {
-      max-width: 85%;
       margin: 0 auto;
     }
 
@@ -82,6 +85,7 @@
     ul.alt-names>li {
       margin-bottom: 3rem;
       display: flex;
+      flex-direction: column-reverse;
     }
 
     .column.name ul>li {
@@ -100,14 +104,7 @@
 
     .column {
       padding: 0 1.5rem;
-    }
-
-    .column:first-child {
-      flex-basis: 38.2%;
-    }
-
-    .column:last-child {
-      flex-basis: 61.8%;
+      width: 100%;
     }
 
     .btn,
@@ -138,6 +135,7 @@
 
     .name {
       padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     .rater {
@@ -155,7 +153,8 @@
       display: block;
       cursor: pointer;
       padding: 1rem;
-      height: 2rem;
+      height: 4rem;
+      margin-bottom: 1rem;
     }
 
     .rater label input {
@@ -169,7 +168,7 @@
     .vote,
     .vote:focus {
       cursor: pointer;
-      font-size: 3rem;
+      font-size: 2rem;
       line-height: 1.5;
       opacity: 0.5;
       filter: grayscale(100%);
@@ -196,7 +195,7 @@
     }
 
     .key {
-      display: flex;
+      display: none;
       margin-bottom: 2rem;
       text-transform: uppercase;
       font-weight: 700;
@@ -214,6 +213,36 @@
     .key span {
       flex-basis: 25%;
       text-align: center;
+    }
+
+    @media screen and (min-width: 800px) {
+
+      .vote,
+      .vote:focus {
+        font-size: 3rem;
+      }
+
+      .key {
+        display: flex;
+      }
+
+      ul.alt-names>li {
+        flex-direction: row;
+      }
+
+      .column:first-child {
+        flex-basis: 38.2%;
+      }
+
+      .column:last-child {
+        flex-basis: 61.8%;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      form {
+        max-width: 80%;
+      }
     }
   </style>
 </head>
